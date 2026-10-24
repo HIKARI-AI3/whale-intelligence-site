@@ -1,0 +1,16 @@
+{
+  "collectedAt": "2026-10-24T17:45:35.760784+00:00",
+  "markets": {
+    "BTC": {
+      "markPx": "80125.0",
+      "openInterest": "43624.42328"
+    },
+    "ETH": {
+      "markPx": "2317.6",
+      "openInterest": "1116269.4450000001"
+    }
+  },
+  "walletCount": 0,
+  "summary": "BTC・ETHの市場データを表示しています。大口ウォレットの分析は準備中です。",
+  "highlights": []
+}

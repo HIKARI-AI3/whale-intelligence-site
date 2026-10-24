@@ -22,3 +22,21 @@ const number=(v,decimals=2)=>{const n=Number(v);return Number.isFinite(n)?n.toLo
   }
  }catch(e){$("state").textContent="公開準備中";$("summary").textContent="公開用データの検証と連携を進めています。未検証の取引シグナルは掲載しません。"}
 })();
+(async()=>{
+ try {
+  const res=await fetch("./whales.json",{cache:"no-store"});
+  if(!res.ok) return;
+  const data=await res.json();
+  if(!data.aggregates || !data.collectedAt) return;
+  const summary=document.getElementById("whale-summary");
+  summary.textContent="監視対象 "+data.trackedWallets+"口座 / 取得成功 "+data.successfulWallets+"口座 / 取得: "+new Date(data.collectedAt).toLocaleString("ja-JP",{timeZone:"Asia/Tokyo"})+" JST。サンプル内の建玉であり、市場全体の比率ではありません。";
+  const container=document.getElementById("whale-rows");
+  for(const symbol of ["BTC","ETH"]){
+   const item=data.aggregates[symbol];if(!item)continue;
+   const row=document.createElement("div");row.className="item";
+   const title=document.createElement("span");title.textContent=symbol+" ロング "+item.longWallets+"口座 / ショート "+item.shortWallets+"口座";
+   const detail=document.createElement("small");detail.textContent="売り建玉 $"+Math.round(item.shortNotionalUsd).toLocaleString("ja-JP");
+   row.append(title,detail);container.append(row);
+  }
+ }catch(e){/* Keep the honest staging message when data is unavailable. */}
+})();

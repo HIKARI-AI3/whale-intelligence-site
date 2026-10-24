@@ -21,7 +21,7 @@ def fetch(url, payload=None):
     req = Request(url, data=data, method="POST" if data else "GET",
                   headers={"User-Agent": "WhaleIntelligenceJapan/0.3",
                            "Content-Type": "application/json"})
-    with urlopen(req, timeout=45) as response:
+    with urlopen(req, timeout=120 if url == LEADERBOARD else 30) as response:
         return json.load(response)
 
 def metric(row, category):

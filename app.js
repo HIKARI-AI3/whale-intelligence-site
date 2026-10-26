@@ -9,7 +9,7 @@ const number=(v,decimals=2)=>{const n=Number(v);return Number.isFinite(n)?n.toLo
   if(!data || typeof data!=="object" || !data.markets)throw new Error("invalid data");
   $("btc").textContent=data.markets.BTC?.markPx?"$"+number(data.markets.BTC.markPx):"--";
   $("eth").textContent=data.markets.ETH?.markPx?"$"+number(data.markets.ETH.markPx):"--";
-  $("wallets").textContent=Number.isInteger(data.walletCount)?number(data.walletCount,0):"--";
+  $("wallets").textContent="--"; // Use validated whale snapshot, not stale market walletCount.
   $("updated").textContent=data.collectedAt?"取得: "+new Date(data.collectedAt).toLocaleString("ja-JP",{timeZone:"Asia/Tokyo"})+" JST":"";
   $("state").textContent="公開データを表示中";
   $("summary").textContent=data.summary||"公開済みの市場スナップショットを表示しています。";
@@ -27,7 +27,8 @@ const number=(v,decimals=2)=>{const n=Number(v);return Number.isFinite(n)?n.toLo
   const res=await fetch("./whales.json",{cache:"no-store"});
   if(!res.ok) return;
   const data=await res.json();
-  if(!data.aggregates || !data.collectedAt) return;
+  if(!data.aggregates || !data.collectedAt || !Number.isInteger(data.trackedWallets) || !Number.isInteger(data.successfulWallets)) return;
+  document.getElementById("wallets").textContent=number(data.trackedWallets,0);
   const summary=document.getElementById("whale-summary");
   summary.textContent="監視対象 "+data.trackedWallets+"口座 / 取得成功 "+data.successfulWallets+"口座 / 取得: "+new Date(data.collectedAt).toLocaleString("ja-JP",{timeZone:"Asia/Tokyo"})+" JST。サンプル内の建玉であり、市場全体の比率ではありません。";
   const container=document.getElementById("whale-rows");

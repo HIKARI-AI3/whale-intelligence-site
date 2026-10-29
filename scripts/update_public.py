@@ -28,6 +28,6 @@ for symbol in ("BTC","ETH"):
                 highlights.append({"title":symbol+" "+label+" 前回比","detail":f"{(after/before-1)*100:+.2f}%"})
         except (KeyError,TypeError,ValueError,ZeroDivisionError):
             pass
-output={"collectedAt":datetime.now(timezone.utc).isoformat(),"markets":markets,"walletCount":0,"summary":"BTC・ETHの市場データを表示しています。大口ウォレットの分析は準備中です。","highlights":highlights,"previousAt":old.get("collectedAt")}
+output={"collectedAt":datetime.now(timezone.utc).isoformat(),"markets":markets,"walletCount":0,"summary":"BTC・ETHの市場データを表示しています。大口ウォレットの集計状況は下のセクションで確認できます。","highlights":highlights,"previousAt":old.get("collectedAt")}
 Path("public-data.json").write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 print("Public market snapshot written")

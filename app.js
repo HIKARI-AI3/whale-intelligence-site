@@ -7,7 +7,7 @@ const number = (value, decimals = 2) => {
     : "--";
 };
 const jst = value => new Date(value).toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" }) + " JST";
-const statusText = state => state.level === "critical" ? "24時間超の更新停止（過去データ）"
+const statusText = state => state.level === "critical" ? "24時間超の更新遅延（過去データ）"
   : state.level === "delayed" ? "更新遅延（過去データ）"
   : state.level === "unknown" ? "取得時刻を確認できません" : "更新時刻確認済み";
 (async () => {

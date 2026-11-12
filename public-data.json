@@ -1,13 +1,13 @@
 {
-  "collectedAt": "2026-11-11T19:44:27.038111+00:00",
+  "collectedAt": "2026-11-12T07:27:47.861609+00:00",
   "markets": {
     "BTC": {
-      "markPx": "74326.0",
-      "openInterest": "40662.45354"
+      "markPx": "73525.0",
+      "openInterest": "39953.04552"
     },
     "ETH": {
-      "markPx": "2076.3",
-      "openInterest": "775917.0459999999"
+      "markPx": "2048.9",
+      "openInterest": "760532.1806"
     }
   },
   "walletCount": 0,
@@ -15,20 +15,20 @@
   "highlights": [
     {
       "title": "BTC 価格 前回比",
-      "detail": "+1.05%"
+      "detail": "-1.08%"
     },
     {
       "title": "BTC 建玉数量 前回比",
-      "detail": "+0.95%"
+      "detail": "-1.74%"
     },
     {
       "title": "ETH 価格 前回比",
-      "detail": "+1.13%"
+      "detail": "-1.32%"
     },
     {
       "title": "ETH 建玉数量 前回比",
-      "detail": "+1.11%"
+      "detail": "-1.98%"
     }
   ],
-  "previousAt": "2026-11-11T06:49:42.217653+00:00"
+  "previousAt": "2026-11-11T19:44:27.038111+00:00"
 }

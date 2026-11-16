@@ -1,5 +1,5 @@
 {
-  "collectedAt": "2026-11-15T19:09:25.329560+00:00",
+  "collectedAt": "2026-11-16T07:22:42.089653+00:00",
   "trackedWallets": 100,
   "successfulWallets": 100,
   "failedWallets": 0,
@@ -7,14 +7,14 @@
     "BTC": {
       "longWallets": 6,
       "shortWallets": 28,
-      "longNotionalUsd": 36468602.78,
-      "shortNotionalUsd": 489039117.82
+      "longNotionalUsd": 17364265.67,
+      "shortNotionalUsd": 500474083.17
     },
     "ETH": {
-      "longWallets": 9,
-      "shortWallets": 20,
-      "longNotionalUsd": 37886638.36,
-      "shortNotionalUsd": 254071798.9
+      "longWallets": 10,
+      "shortWallets": 19,
+      "longNotionalUsd": 29810913.85,
+      "shortNotionalUsd": 244883929.41
     }
   },
   "methodology": "40 highest account value, 40 highest positive monthly PnL, 20 highest positive daily volume; deduplicated Hyperliquid public leaderboard addresses.",
